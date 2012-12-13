@@ -1,0 +1,46 @@
+group JavaLikeToGlobal;
+
+globals(names) ::=
+<<
+    <names:global()>
+>>
+
+global(name) ::=
+<<
+global <name>
+>>
+
+compilationUnit(globals, classDef) ::=
+<<
+<globals:globals();separator="\n">
+<classDef>
+>>
+
+class(name, body) ::= 
+<<
+<body>
+>>
+
+classField(name) ::=
+<<>>
+
+classMethod(name, params, body) ::=
+<<
+<name>(<params>):
+    <body>
+end
+>>
+
+methodField(name) ::=
+<<
+>>
+
+paramList(params) ::=
+<<
+    <params:{p| <p.text>}; separator=", ">
+>>
+
+append(parts) ::=
+<<
+ <parts;separator="\n">
+>>
